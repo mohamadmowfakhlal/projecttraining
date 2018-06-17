@@ -1,0 +1,173 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <script type="text/javascript">
+        //we call api gate way in the backend
+
+      
+           function search() {
+            var username = document.getElementById("myform").elements.namedItem("username").value;
+            var password = document.getElementById("myform").elements.namedItem("password").value;
+            var instanceID = document.getElementById("myform").elements.namedItem("instanceID").value;
+            var url = "http://149.169.152.10/football/search.php"+
+            }
+            
+            httpGet(url);
+        }
+        function httpGet(theUrl)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+            xmlHttp.send( null );
+            var myDiv = document.getElementById("result");
+            var result=JSON.parse(xmlHttp.responseText);
+            var items = result["Items"];
+            var oldfinding = "finding"
+            removeTable(oldfinding)
+            if(items != null){
+                tableCreate(items.length,items);
+            }
+            return xmlHttp.responseText;
+        }
+        function removeTable(id)
+        {
+            var tbl = document.getElementById(id);
+            if(tbl) tbl.parentNode.removeChild(tbl);
+        }
+        function tableCreate(count,Items) {
+            var body = document.getElementsByTagName('body')[0];
+            var tbl = document.createElement('table');
+            tbl.setAttribute("id", "finding");
+            tbl.style.width = '100%';
+            tbl.setAttribute('border', '3');
+            var tbdy = document.createElement('tbody');
+            var tr = document.createElement('tr');
+            var th = document.createElement('th');
+            th.appendChild(document.createTextNode('customerid'));
+            tr.appendChild(th);
+            var th = document.createElement('th');
+            th.appendChild(document.createTextNode('username'));
+            tr.appendChild(th);
+            var th = document.createElement('th');
+            th.appendChild(document.createTextNode('password'));
+            tr.appendChild(th);
+            var th = document.createElement('th');
+            th.appendChild(document.createTextNode('channelLink'));
+            tr.appendChild(th);
+            var th = document.createElement('th');
+            th.appendChild(document.createTextNode('notes'));
+            tr.appendChild(th);
+            tbdy.appendChild(tr);
+            for (var i = 0; i < count; i++) {
+                var tr = document.createElement('tr');
+                var item = Items[i];
+                       var td = document.createElement('td');
+                       td.appendChild(document.createTextNode(item["accountid"]["S"]))
+                       tr.appendChild(td)
+                        var td = document.createElement('td');
+                        td.appendChild(document.createTextNode(item["instanceID"]["S"]))
+                        tr.appendChild(td)
+                       var td = document.createElement('td');
+                       td.appendChild(document.createTextNode(item["id"]["S"]))
+                       tr.appendChild(td)
+                       var td = document.createElement('td');
+                       td.appendChild(document.createTextNode(item["title"]["S"]))
+                       tr.appendChild(td)
+                       var td = document.createElement('td');
+                       td.appendChild(document.createTextNode(item["severity"]["S"]))
+                       tr.appendChild(td)
+                       var td = document.createElement('td');
+                       td.appendChild(document.createTextNode(item["description"]["S"]))
+                       tr.appendChild(td)
+                       var td = document.createElement('td');
+                        td.appendChild(document.createTextNode(item["recommendation"]["S"]))
+                        tr.appendChild(td)
+                        tbdy.appendChild(tr);
+            }
+            tbl.appendChild(tbdy);
+            body.appendChild(tbl)
+        }
+    </script>
+
+</head>
+
+<body>
+<table class="uppertable">
+<br>
+<br>
+<br>
+
+    <tr>
+        
+        <td><marquee>welcome with you in our registeration department you can register your new customer her</marquee></td>
+
+    </tr>
+<br>
+<br>
+<br>
+
+    <tr>
+        <td colspan="2" width="50"></td>
+        <td>
+            <h2>customer managment</h2>
+        </td>
+
+    </tr>
+</table>
+
+<tr></tr>
+<tr></tr>
+<tr></tr>
+
+
+<center>
+    <form name="customerForm" id="customer" action="registeration.php" method='get'>
+        <table class="formtable">
+
+
+            <tr>
+                <td>
+                    username:&nbsp;
+                </td>
+                <td>
+                    <input name="username"  id="username" type="text" value="" style="width: 150px;" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    password:&nbsp;
+                </td>
+                <td>
+                    <input name="password"  id="password"  type="password"  value=""  style="width: 150px;" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   
+                </td>
+                <td>
+                  
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    <input name="Submit"  type="submit" value="search customer" style="width: 95px;" />
+                    <input type="reset" value="Clear form " style="width: 75px;" />
+                </td>
+                <td>
+
+
+                </td>
+            </tr>
+
+        </table>
+    </form>
+	</center>
+<div id="result"></div>
+</body>
+</html>

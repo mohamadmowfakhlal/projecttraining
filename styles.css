@@ -1,0 +1,78 @@
+
+
+
+html { overflow-y: scroll; }
+body {
+  background: #eee ; /* http://subtlepatterns.com/weave/ */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 62.5%;
+  line-height: 1;
+  color: #585858;
+  padding: 22px 10px;
+  padding-bottom: 55px;
+}
+input {
+  width: 10%;
+}
+
+
+br { display: block; line-height: 1.6em; }
+
+
+
+
+img { border: 0; max-width: 100%; }
+
+h1 {
+  font-weight: bold;
+  font-size: 3.6em;
+  line-height: 1.7em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+
+table {
+  border-collapse: collapse;
+}
+
+.uppertable td{
+  border: 0px;
+}
+
+.uppertable {
+  border: 0px;
+}
+.formtable td{
+  border: 0px;
+}
+
+.formtable {
+  border: 0px;
+}
+table, th, td {
+  border: 1px solid black;
+}
+th {
+  text-align:center
+}
+
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+input {
+  padding: 6px 6px;
+  margin: 4px 0;
+  box-sizing: border-box;
+}
+select {
+  font-family: Arial;
+  padding: 6px 6px;
+  margin: 4px 0;
+  box-sizing: border-box;
+  width: 150px;
+}
+
+
