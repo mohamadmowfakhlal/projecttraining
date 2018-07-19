@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="styles.css"/>
     <script type="text/javascript">
-        //we call api gate way in the backend
+        //we call api gate way in the backend fd
 
         function registerCustomer(theUrl)
         {
