@@ -8,7 +8,7 @@
 <h1>
 <?php 
 //open connection with database 
-
+//change here
 include '../db_connection.php';
 $username=$_GET['username'];
 $password=$_GET['password'];
