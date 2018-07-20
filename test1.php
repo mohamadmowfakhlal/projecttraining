@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="styles.css"/>
     <script type="text/javascript">
-        //no thing here
+        //no thing here now
 
         function registerCustomer(theUrl)
         {
